@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 5th Monthsary, My Love</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: #fdf2f8;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/api/placeholder/800/600') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent, rgba(219, 39, 119, 0.2));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .heart-beat {
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+            font-size: 2rem;
+            color: #ff6b81;
+            margin: 0 10px;
+        }
+        
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.2);
+            }
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 100px 20px;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #db2777;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #db2777;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #f9a8d4;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #fff;
+            border: 4px solid #db2777;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -17px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -17px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #fff1f2;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(219, 39, 119, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(219, 39, 119, 0.2);
+        }
+        
+        .timeline-date {
+            font-size: 1rem;
+            color: #db2777;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #831843;
+        }
+        
+        .timeline-img-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .timeline-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Changed from cover to contain */
+            display: block;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 20px;
+            background-color: #fbcfe8;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            background-color: #fff;
+            aspect-ratio: 1/1; /* Changed to 1:1 for square items */
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-img-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
+            position: relative; /* For proper overlay positioning */
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Changed to cover for better image display */
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-caption {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 100px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(219, 39, 119, 0.2);
+            position: relative;
+        }
+        
+        .video-placeholder {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: url('/api/placeholder/800/450') center/contain no-repeat #f5f5f5; /* Changed from cover to contain */
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(219, 39, 119, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            background-color: rgba(219, 39, 119, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .play-button::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 25px solid #fff;
+            margin-left: 5px;
+        }
+        
+        /* Letter Section */
+        .letter-section {
+            padding: 100px 20px;
+            background-color: #fce7f3;
+            text-align: center;
+        }
+        
+        .letter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(219, 39, 119, 0.15);
+            position: relative;
+        }
+        
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: calc(100% + 30px);
+            height: calc(100% + 30px);
+            border: 2px dashed #db2777;
+            border-radius: 25px;
+            z-index: -1;
+        }
+        
+        .letter-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a5568;
+            text-align: left;
+            font-style: italic;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            color: #db2777;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 50px 20px;
+            background-color: #831843;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-heart {
+            font-size: 2rem;
+            color: #ff6b81;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Image Upload Styles */
+        .image-upload-info {
+            background-color: #e6f7ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 30px auto;
+            max-width: 800px;
+            text-align: center;
+            border-left: 4px solid #1890ff;
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 15px;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Happy 5th Monthsary</h1>
+            <h1>My Baby❤️❤️❤️</h1>
+            <p>Five amazing months of love, laughter, and unforgettable moments with you</p>
+            <p>
+                <span class="heart-beat">❤️</span>
+                <span id="countdown"></span>
+                <span class="heart-beat">❤️</span>
+            </p>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <h2 class="section-title">Our Journey Together</h2>
+        <div class="timeline">
+            <!-- Month 1 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-date"></h3>
+                    <h4 class="timeline-title">Where It All Began</h4>
+                    <div class="timeline-img-container">
+                        <img src="pic/v1.jpg" alt="First month together" class="timeline-img">
+                    </div>
+                    <p>From our first date to our first kiss, the beginning of our beautiful journey together was filled with butterflies and excitement.</p>
+                </div>
+            </div>
+            
+            <!-- Month 2 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-date"></h3>
+                    <h4 class="timeline-title">Growing Together</h4>
+                    <div class="timeline-img-container">
+                        <img src="pic/3.png" alt="First month together" class="timeline-img">
+                    </div>
+                    <p>We started discovering each other's worlds. Your smile became the highlight of my every day.</p>
+                </div>
+            </div>
+            
+            <!-- Month 3 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-date"></h3>
+                    <h4 class="timeline-title">Adventures Begin</h4>
+                    <div class="timeline-img-container">
+                        <img src="pic/q6.jpeg" alt="First month together" class="timeline-img">
+                    </div>
+                    <p>Our first trip together, late night drives, and endless conversations under the stars. Every moment became a cherished memory.</p>
+                </div>
+            </div>
+            
+            <!-- Month 4 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-date"></h3>
+                    <h4 class="timeline-title">Overcoming Challenges</h4>
+                    <div class="timeline-img-container">
+                        <img src="pic/7.jpg" alt="First month together" class="timeline-img">
+                    </div>
+                    <p>Through ups and downs, we learned that together we are stronger. Our love deepened with every challenge we faced together.</p>
+                </div>
+            </div>
+            
+            <!-- Month 5 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="timeline-date"></h3>
+                    <h4 class="timeline-title">Today & Forever</h4>
+                    <div class="timeline-img-container">
+                        <img src="pic/2.jpg" alt="First month together" class="timeline-img">
+                    </div>
+                    <p>Five months of love, laughter, and beautiful moments. Here's to many more monthsaries and a lifetime of happiness together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2 class="section-title">Our Precious Moments</h2>
+        <div class="gallery-container">
+            <!-- Gallery Item 1 -->
+            <div class="gallery-item">
+                <a href="pic/w5.jpg" target="_blank" class="gallery-img-container">
+                    <img src="pic/w5.jpg" alt="Special moment 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Our first date</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item">
+                <a href="pic/13.png" target="_blank" class="gallery-img-container">
+                    <img src="pic/13.png" alt="Special moment 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Beach day</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item">
+                <a href="pic/ww.jpeg" target="_blank" class="gallery-img-container">
+                    <img src="pic/ww.jpeg" alt="Special moment 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Movie night</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item">
+                <a href="pic/9.jpg" target="_blank" class="gallery-img-container">
+                    <img src="pic/9.jpg" alt="Special moment 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Dinner date</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Item 5 -->
+            <div class="gallery-item">
+                <a href="pic/17.jpg" target="_blank" class="gallery-img-container">
+                    <img src="pic/17.jpg" alt="Special moment 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Hiking adventure</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Gallery Item 6 -->
+            <div class="gallery-item">
+                <a href="pic/w1.jpg" target="_blank" class="gallery-img-container">
+                    <img src="pic/w1.jpg" alt="Special moment 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Surprise gift</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+   <!-- Video Section -->
+<section class="video-section">
+    <h2 class="section-title">Our Video Memories</h2>
+    <div class="video-container" style="max-width: 450px;"> <!-- Reduced width for portrait orientation -->
+        <div class="video-placeholder" style="padding-bottom: 177.78%;"> <!-- 9:16 Aspect Ratio for portrait video -->
+            <video width="100%" height="100%" controls style="position: absolute; top: 0; left: 0;">
+                <source src="vid/baby.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+    
+    <!-- Letter Section -->
+    <section class="letter-section">
+        <h2 class="section-title">A Letter From My Heart</h2>
+        <div class="letter-container">
+            <div class="letter-content">
+                <p>My Dearest Baby Davy Oflas Mayormita,</p>
+                <br>
+                <p>Five months have passed since that wonderful day when you came into my life, and every moment since then has been nothing short of magical. As I sit here reflecting on our journey together, my heart overflows with gratitude and love.</p>
+                <br>
+                <p>I cherish the way you make me laugh even on my worst days. I admire how your eyes light up when you talk about your passions. I love how you understand me without words, how you hold my hand exactly when I need it most.</p>
+                <br>
+                <p>These five months have taught me what it means to truly care for someone, to put their happiness alongside my own. With you, I've learned that love isn't just about the grand gestures but also about the quiet moments—the sleepy good mornings, the random text messages throughout the day, and the peaceful silence when we're simply enjoying each other's company.</p>
+                <br>
+                <p>Today, as we celebrate our 5th monthsary, I want you to know that my feelings for you grow stronger with each passing day. I look forward to creating countless more memories together, to facing whatever challenges may come our way, and to celebrating many more monthsaries.</p>
+                <br>
+                <p>Thank you for being you, and for choosing to share your life with me.</p>
+                <br>
+                <p>Iloveyouuusooomuhhh Mybabyyy Mwaaaa🥰🥰🥰😘😘😘.</p>
+                <br>
+                <p>With all my heart,</p>
+                <div class="letter-signature">Yours Always</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-message">Here's to many more beautiful months and years together</p>
+            <div class="footer-heart">❤️</div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Countdown Timer
+        const monthsaryDate = new Date();  // Today's date for demo purposes
+        
+        function updateCountdown() {
+            const now = new Date();
+            const hours = 23 - now.getHours();
+            const minutes = 59 - now.getMinutes();
+            const seconds = 59 - now.getSeconds();
+            
+            document.getElementById('countdown').textContent = 
+                `${hours}h ${minutes}m ${seconds}s`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Play button functionality
+        document.querySelector('.play-button').addEventListener('click', function() {
+            alert('Video playback would start here in a real implementation.');
+        });
+        
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (itemTop < windowHeight * 0.8) {
+                    item.style.opacity = 1;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
